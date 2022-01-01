@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="root"></div>
+</body>
+<script src="https://unpkg.com/react@17.0.2/umd/react.production.min.js"></script>
+<script src="https://unpkg.com/react-dom@17.0.2/umd/react-dom.production.min.js"></script>
+<script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+<script type="text/babel">
+    const root = document.querySelector("#root");
+    const h3 = React.createElement("h3", null, "I'm h3-tag");
+
+    // jsx 방식
+    const Button = () => (
+        <button id="btn" onClick={() => { console.log("click") }}>Click me</button>
+    );
+
+    // 원래의 react.js 방식
+    // const Button = React.createElement("button", {
+    //     onClick: () => {
+    //         console.log("click");
+    //     }
+    // }, "Click me");
+
+    const Container = () => (
+        <div>
+            <Button />
+        </div>
+    )
+
+    // 원래의 react.js 랜더링 방식
+    // const Container = React.createElement("div", null, [h3, Button]);
+
+    ReactDOM.render(<Container />, root)
+</script>
+
+</html>
